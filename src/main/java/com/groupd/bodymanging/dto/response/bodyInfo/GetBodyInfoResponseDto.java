@@ -21,12 +21,11 @@ public class GetBodyInfoResponseDto extends ResponseDto{
     public GetBodyInfoResponseDto(List<BodyInfoEntity> bodyInfoEntities, UserEntity userEntity){
         super("SU", "Sucess");
 
-        // this.userCode = userEntity.getUserCode();
-        // BodyInfoList bodyInfoList = new BodyInfoList(); //새로 만들 공간을 만들어주는건가
-        // this.bodyInfoList = bodyInfoList.recordList(bodyInfoEntities);
     }
 }
 
+@Data
+@NoArgsConstructor
 class BodyInfoList{
     private String recordDate;
     private double height;
