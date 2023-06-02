@@ -3,7 +3,7 @@ package com.groupd.bodymanging.service.implement;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-
+import com.groupd.bodymanging.dto.request.board.PatchBoardRequestDto;
 import com.groupd.bodymanging.dto.request.board.PostBoardRequestDto;
 import com.groupd.bodymanging.dto.response.ResponseDto;
 import com.groupd.bodymanging.dto.response.board.GetBoardListResponseDto;
@@ -26,11 +26,11 @@ public class BoardServiceImplement implements BoardService{
         throw new UnsupportedOperationException("Unimplemented method 'getBoard'");
     }
 
-    // @Override
-    // public ResponseEntity<? super GetBoardWordListResponseDto> getWordBoard() {
-    //     // TODO Auto-generated method stub
-    //     throw new UnsupportedOperationException("Unimplemented method 'getWordBoard'");
-    // }
+    @Override
+    public ResponseEntity<? super GetBoardListResponseDto> getWordBoard() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getWordBoard'");
+    }
 
     @Override
     public ResponseEntity<? super GetBoardListResponseDto> getBoardList() {
@@ -38,11 +38,12 @@ public class BoardServiceImplement implements BoardService{
         throw new UnsupportedOperationException("Unimplemented method 'getBoardList'");
     }
 
-    // @Override
-    // public ResponseEntity<ResponseDto> patchBoard(String userEmail, PatchBoardRequestDto dto) {
-    //     // TODO Auto-generated method stub
-    //     throw new UnsupportedOperationException("Unimplemented method 'patchBoard'");
-    // }
+    @Override
+    public ResponseEntity<ResponseDto> patchBoard(String userEmail, PatchBoardRequestDto dto) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'patchBoard'");
+    }
+
 
     @Override
     public ResponseEntity<ResponseDto> deleteBoard(String email, Integer boardNumber) {

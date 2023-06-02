@@ -11,6 +11,7 @@ import com.groupd.bodymanging.dto.request.user.PatchUserRequestDto;
 import com.groupd.bodymanging.dto.request.user.SignInRequestDto;
 import com.groupd.bodymanging.dto.request.user.SignUpRequestDto;
 import com.groupd.bodymanging.dto.response.ResponseDto;
+import com.groupd.bodymanging.dto.response.user.GetAuthResponseDto;
 import com.groupd.bodymanging.dto.response.user.GetUserResponseDto;
 
 import com.groupd.bodymanging.entity.UserEntity;
@@ -71,9 +72,9 @@ public class UserServiceImplement implements UserService{
     }
 
     @Override
-    public ResponseEntity<? super SignInResponseDto> signIn(SignInRequestDto dto) {
+    public ResponseEntity<? super GetAuthResponseDto> signIn(SignInRequestDto dto) {
         
-        SignInResponseDto body = null;
+        GetAuthResponseDto body = null;
 
         String userEmail = dto.getUserEmail();
         String userPassword = dto.getUserPassword();
@@ -92,7 +93,7 @@ public class UserServiceImplement implements UserService{
             //데이터 반환(토큰 생성)
             String jwt = jwtProvider.create(userEmail);
             Integer lastUserCode = userEntity.getUserCode();
-            body = new SignInResponseDto(jwt, lastUserCode);
+            body = new GetAuthResponseDto(jwt, lastUserCode);
             
         } catch (Exception exception) {
             exception.printStackTrace();

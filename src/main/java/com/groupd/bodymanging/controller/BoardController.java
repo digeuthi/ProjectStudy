@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import com.groupd.bodymanging.dto.request.board.PatchBoardRequestDto;
 import com.groupd.bodymanging.dto.request.board.PostBoardRequestDto;
 import com.groupd.bodymanging.dto.response.ResponseDto;
 import com.groupd.bodymanging.dto.response.board.GetBoardListResponseDto;
@@ -50,8 +50,8 @@ public class BoardController {
 
     // 2-1 특정 검색어 게시물 목록 조회
     @GetMapping("")
-    public ResponseEntity<? super GetBoardWordListResponseDto> getWordBoard(){
-        ResponseEntity<? super GetBoardWordListResponseDto> response = boardService.getWordBoard();
+    public ResponseEntity<? super GetBoardListResponseDto> getWordBoard(){
+        ResponseEntity<? super GetBoardListResponseDto> response = boardService.getWordBoard();
         return response;
     }
 

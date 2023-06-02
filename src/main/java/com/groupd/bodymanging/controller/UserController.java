@@ -17,6 +17,7 @@ import com.groupd.bodymanging.dto.request.user.PatchUserRequestDto;
 import com.groupd.bodymanging.dto.request.user.SignInRequestDto;
 import com.groupd.bodymanging.dto.request.user.SignUpRequestDto;
 import com.groupd.bodymanging.dto.response.ResponseDto;
+import com.groupd.bodymanging.dto.response.user.GetAuthResponseDto;
 import com.groupd.bodymanging.dto.response.user.GetUserResponseDto;
 
 import com.groupd.bodymanging.service.UserService;
@@ -41,10 +42,10 @@ public class UserController {
     }
 
     @PostMapping("sign-in")
-    public ResponseEntity<? super SignInResponseDto> signIn(
+    public ResponseEntity<? super GetAuthResponseDto> signIn(
         @Valid @RequestBody SignInRequestDto requsetBody
     ){
-        ResponseEntity<? super SignInResponseDto> response = userService.signIn(requsetBody);
+        ResponseEntity<? super GetAuthResponseDto> response = userService.signIn(requsetBody);
         return response;
     }
 
