@@ -1,7 +1,10 @@
 package com.groupd.bodymanging.service.implement;
 
+import javax.print.PrintException;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.token.TokenService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -23,6 +26,8 @@ import com.groupd.bodymanging.service.UserService;
 public class UserServiceImplement implements UserService{
 
     private UserRepository userRepository;
+
+    private TokenService tokenService;
 
     private JwtProvider jwtProvider;
 
@@ -104,6 +109,18 @@ public class UserServiceImplement implements UserService{
     }
 
     @Override
+    public ResponseEntity<? super GetAuthResponseDto> logout(String jwt) {
+        
+        try {
+            tokenService.invalidateToken(jwt); // 토큰 삭제
+            return CustomResponse.success();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+            return CustomResponse.serverError();
+        }
+    }
+
+    @Override
     public ResponseEntity<? super GetUserResponseDto> getUser(Integer userCode) {
         GetUserResponseDto body = null;
 
@@ -163,5 +180,5 @@ public class UserServiceImplement implements UserService{
 
         return CustomResponse.success();
     }
-    
+
 }

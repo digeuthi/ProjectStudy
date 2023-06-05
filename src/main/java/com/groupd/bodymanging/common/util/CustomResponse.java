@@ -19,6 +19,11 @@ public class CustomResponse {
             .body(errorBody);
     } 
 
+    public static ResponseEntity<ResponseDto> serverError() {
+        ResponseDto errorBody = new ResponseDto("SE", "Server Error");
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorBody);
+    }
+
     public static ResponseEntity<ResponseDto> validationFaild(){
         ResponseDto errorBody = 
         new ResponseDto("VF", "Request Parameter Validation Failed");
