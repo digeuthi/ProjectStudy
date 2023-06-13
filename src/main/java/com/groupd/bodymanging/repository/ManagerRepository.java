@@ -1,6 +1,7 @@
 package com.groupd.bodymanging.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.groupd.bodymanging.entity.ManagerEntity;
@@ -17,5 +18,10 @@ public interface ManagerRepository extends JpaRepository<ManagerEntity,String>{
     public boolean existsByManagerEmail(String email);
     public ManagerEntity findByManagerEmail(String email);
 
-    
+    @Query(
+        value = 
+        "SELECT manager_email AS managerEmail FROM Manager ",
+        nativeQuery = true
+    )
+    public List<ManagerEmailResultSet> getMangerList();
 }
