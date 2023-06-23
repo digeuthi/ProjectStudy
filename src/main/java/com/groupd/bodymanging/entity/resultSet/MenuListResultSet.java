@@ -1,6 +1,6 @@
 package com.groupd.bodymanging.entity.resultSet;
 
-public interface MenuListResultSet { //이거 왜 인터페이스로 하는가
+public interface MenuListResultSet { 
     public int getMenuIndex();
     public String getMenuCode();
     public String getTime();

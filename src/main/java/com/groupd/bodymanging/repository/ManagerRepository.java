@@ -5,6 +5,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.groupd.bodymanging.entity.ManagerEntity;
+import com.groupd.bodymanging.entity.resultSet.ManagerEmailResultSet;
+
 import java.util.List;
 
 

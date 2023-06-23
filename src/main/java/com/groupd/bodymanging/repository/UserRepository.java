@@ -9,6 +9,7 @@ public interface UserRepository extends JpaRepository<UserEntity, Integer> {
     public boolean existsByEmail(String userEmail);
     public boolean existsByNickname(String userNickname);
     public boolean existsByPhoneNumber(String userPhoneNumber);
+    //각각 이메일, 닉네임, 핸드폰번호가 기존에 존재하는지 여부를 가져온다
 
     public UserEntity findByUserEmail(String userEmail);
     public UserEntity findByUserCode(int userCode);
